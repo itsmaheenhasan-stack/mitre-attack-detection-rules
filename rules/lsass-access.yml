@@ -1,0 +1,27 @@
+title: LSASS Memory Access via Suspicious Process
+id: 5c81f0a5-a8b6-4cb4-b56f-8fdb25b9f934
+status: experimental
+description: Detects processes accessing LSASS memory with access rights consistent with credential dumping (e.g. via procdump, comsvcs.dll, or Task Manager dump)
+references:
+    - https://attack.mitre.org/techniques/T1003/001/
+author: Maheen Hasan
+date: 2026-07-07
+logsource:
+    category: process_access
+    product: windows
+detection:
+    selection:
+        TargetImage|endswith: '\lsass.exe'
+        GrantedAccess:
+            - '0x1010'
+            - '0x1410'
+            - '0x1438'
+    filter_legit:
+        SourceImage|startswith:
+            - 'C:\Windows\System32\'
+            - 'C:\Program Files\Windows Defender\'
+    condition: selection and not filter_legit
+level: high
+tags:
+    - attack.credential_access
+    - attack.t1003.001
