@@ -18,6 +18,7 @@ rules/ → Sigma rule (.yml) + explanation (.md) for each technique
 | Technique | ATT&CK ID | Status |
 |---|---|---|
 | PowerShell spawning Rundll32 | T1218.011 | ✅ |
+| Word spawning PowerShell | T1566.001 | ✅ |
 
 ## Author
 
