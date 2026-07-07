@@ -13,6 +13,11 @@ every rule includes the underlying attacker logic, not just detection syntax.
 
 rules/ → Sigma rule (.yml) + explanation (.md) for each technique
 
+## Methodology
+Each rule documents five things: what happened, why it's suspicious, which logs 
+detect it, known false positives, and investigation steps. The goal isn't just 
+detection syntax, it's showing the reasoning an analyst would use to triage it.
+
 ## Rules
 
 | Technique | ATT&CK ID | Status |
