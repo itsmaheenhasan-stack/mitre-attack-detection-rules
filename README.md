@@ -20,6 +20,7 @@ rules/ → Sigma rule (.yml) + explanation (.md) for each technique
 | PowerShell spawning Rundll32 | T1218.011 | ✅ |
 | Word spawning PowerShell | T1566.001 | ✅ |
 | Discovery Commands (Non-Interactive Parent) | T1033 / T1082 | ✅ |
+| LSASS Memory Access | T1003.001 | ✅ |
 
 ## Author
 
