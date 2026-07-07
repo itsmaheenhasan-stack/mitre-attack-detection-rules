@@ -1,0 +1,29 @@
+title: Discovery Commands via Non-Interactive Parent
+id: b3a14800-30c3-4744-841c-6f8e92a46fdf
+status: experimental
+description: Detects whoami, net user, or systeminfo spawned by cmd.exe or powershell.exe where the grandparent process is not explorer.exe, consistent with automated post-exploitation discovery
+references:
+    - https://attack.mitre.org/techniques/T1033/
+    - https://attack.mitre.org/techniques/T1082/
+author: Maheen Hasan
+date: 2026-07-07
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        ParentImage|endswith:
+            - '\cmd.exe'
+            - '\powershell.exe'
+        Image|endswith:
+            - '\whoami.exe'
+            - '\net.exe'
+            - '\systeminfo.exe'
+    filter_interactive:
+        ParentImage|endswith: '\explorer.exe'
+    condition: selection and not filter_interactive
+level: medium
+tags:
+    - attack.discovery
+    - attack.t1033
+    - attack.t1082
