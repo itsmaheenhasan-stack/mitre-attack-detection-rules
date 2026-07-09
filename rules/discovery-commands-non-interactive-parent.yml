@@ -1,6 +1,6 @@
 title: Discovery Commands via Non-Interactive Parent
 id: b3a14800-30c3-4744-841c-6f8e92a46fdf
-status: experimental
+status: test
 description: Detects whoami, net user, or systeminfo spawned by cmd.exe or powershell.exe where the grandparent process is not explorer.exe, consistent with automated post-exploitation discovery
 references:
     - https://attack.mitre.org/techniques/T1033/
