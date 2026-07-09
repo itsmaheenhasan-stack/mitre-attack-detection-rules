@@ -1,6 +1,6 @@
 title: LSASS Memory Access via Suspicious Process
 id: 5c81f0a5-a8b6-4cb4-b56f-8fdb25b9f934
-status: experimental
+status: test
 description: Detects processes accessing LSASS memory with access rights consistent with credential dumping (e.g. via procdump, comsvcs.dll, or Task Manager dump)
 references:
     - https://attack.mitre.org/techniques/T1003/001/
