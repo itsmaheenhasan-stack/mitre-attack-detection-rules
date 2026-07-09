@@ -25,8 +25,8 @@ Each rule documents five things: what happened, why it's suspicious, which logs 
 
 **Validation notes**
 
-- **Fully tested** – The behavior was reproduced in a Windows 11 lab and the Sigma rule matched the generated Sysmon event.
-- **Telemetry confirmed** – Sysmon was verified to collect the required event fields, but the full attack scenario was not reproduced. The reason is documented in the corresponding rule explanation.
+- **Fully tested** --> The behavior was reproduced in a Windows 11 lab and the Sigma rule matched the generated Sysmon event.
+- **Partially validated** --> Sysmon was verified to collect the required event fields, but the full attack scenario was not reproduced. The reason is documented in the corresponding rule explanation.
 
 ## Author
 
