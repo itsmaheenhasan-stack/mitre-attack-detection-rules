@@ -29,3 +29,24 @@ events within a short time window.
 1. Check the parent process's CommandLine for how it was triggered
 2. Check what ran immediately before and after, other discovery or network activity
 3. Check if this is a known admin script or scheduled task
+
+## Validation
+
+I tested this rule on Windows 11 Pro using Sysmon v15.21.
+
+The following commands were executed from PowerShell:
+
+```powershell
+whoami
+systeminfo
+net user
+```
+
+Sysmon generated Event ID 1 (Process Creation) for each command.
+
+For `net user`, the recorded event showed:
+
+- ParentImage: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+- Image: C:\Windows\System32\net.exe
+
+Windows also created a secondary `net1.exe` process, which appears to be part of the normal execution of the `net` command. Since the detection focuses on the initial discovery command launched by the user, no changes were made to the Sigma rule.
